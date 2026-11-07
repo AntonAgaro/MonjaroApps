@@ -141,12 +141,16 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 sdkmanager --sdk_root=$ANDROID_HOME "platforms;android-37.0" "build-tools;36.0.0" "platform-tools"
 ```
 
-The project already has `local.properties` with `sdk.dir=/Users/antonagaronov/Library/Android/sdk`.
+Tell Gradle where the SDK is (once per clone; `local.properties` is not in git):
+
+```sh
+echo "sdk.dir=$HOME/Library/Android/sdk" > MonjaroDriveMode/local.properties
+```
 
 ### Build
 
 ```sh
-cd /Users/antonagaronov/Documents/MonjaroApps/MonjaroDriveMode
+cd MonjaroApps/MonjaroDriveMode
 export JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home
 
 ./gradlew clean assembleRelease
@@ -220,7 +224,7 @@ $HOME/Library/Android/sdk/emulator/emulator -avd monjaro_test
 In a second Terminal window, install and open the app:
 
 ```sh
-cd /Users/antonagaronov/Documents/MonjaroApps/MonjaroDriveMode
+cd MonjaroApps/MonjaroDriveMode
 adb install -r -g app/build/outputs/apk/release/app-release.apk
 adb shell am start -n app.monjaro.drivemode/.MainActivity
 ```
