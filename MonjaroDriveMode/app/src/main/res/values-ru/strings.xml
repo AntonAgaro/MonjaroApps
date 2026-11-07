@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Режим при старте</string>
+    <string name="intro">После каждого запуска двигателя машина один раз переключится в этот режим. Потом режим можно менять как обычно.</string>
+    <string name="current_mode">Текущий режим: %1$s</string>
+    <string name="no_connection">Нет связи с машиной: %1$s</string>
+
+    <string name="notification_starting">Запуск…</string>
+    <string name="notification_no_sdk">Нет связи с машиной: %1$s</string>
+    <string name="notification_status">Режим при запуске: %1$s</string>
+
+    <string name="value_unavailable">нет данных</string>
+    <string name="mode_off">Выкл (не менять)</string>
+    <string name="mode_unknown">Неизвестно</string>
+    <string name="mode_eco">Эко</string>
+    <string name="mode_comfort">Комфорт</string>
+    <string name="mode_sport">Спорт</string>
+    <string name="mode_smart">Смарт</string>
+    <string name="mode_snow">Снег</string>
+    <string name="mode_offroad">Внедорожный</string>
+    <string name="mode_sand">Песок</string>
+    <string name="mode_mud">Грязь</string>
+    <string name="mode_rock">Камни</string>
+    <string name="mode_custom">Индивидуальный</string>
+</resources>

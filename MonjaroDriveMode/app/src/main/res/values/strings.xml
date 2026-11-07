@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Start Drive Mode</string>
+    <string name="intro">After each engine start the car switches to this mode one time. Then you can change the mode as usual.</string>
+    <string name="current_mode">Current mode: %1$s</string>
+    <string name="no_connection">No connection to the car: %1$s</string>
+
+    <string name="notification_starting">Starting…</string>
+    <string name="notification_no_sdk">No connection to the car: %1$s</string>
+    <string name="notification_status">Mode at engine start: %1$s</string>
+
+    <string name="value_unavailable">not available</string>
+    <string name="mode_off">Off (do not change)</string>
+    <string name="mode_unknown">Unknown</string>
+    <string name="mode_eco">Eco</string>
+    <string name="mode_comfort">Comfort</string>
+    <string name="mode_sport">Sport</string>
+    <string name="mode_smart">Smart</string>
+    <string name="mode_snow">Snow</string>
+    <string name="mode_offroad">Offroad</string>
+    <string name="mode_sand">Sand</string>
+    <string name="mode_mud">Mud</string>
+    <string name="mode_rock">Rock</string>
+    <string name="mode_custom">Custom</string>
+</resources>
