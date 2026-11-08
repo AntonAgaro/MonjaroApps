@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Car Explorer</string>
+
+    <string name="tab_functions">Функции</string>
+    <string name="tab_sensors">Датчики</string>
+    <string name="tab_changes">Изменения (%1$d)</string>
+    <string name="action_rescan">Сканировать</string>
+    <string name="action_watch_on">Слежение: ВКЛ</string>
+    <string name="action_watch_off">Слежение: ВЫКЛ</string>
+    <string name="action_save">Сохранить отчёт</string>
+    <string name="search_hint">Поиск по имени или ID</string>
+    <string name="only_supported">Только поддерживаемые</string>
+
+    <string name="status_connecting">Подключение…</string>
+    <string name="status_no_catalog">На этом устройстве нет классов ECARX.</string>
+    <string name="status_no_connection">Нет связи с машиной: %1$s</string>
+    <string name="status_scanning">Сканирование: %1$d из %2$d</string>
+    <string name="status_ready">Поддерживается: функции %1$d/%2$d, датчики %3$d/%4$d</string>
+
+    <string name="empty_list">Ничего не найдено.</string>
+    <string name="empty_changes">Изменений пока нет. Включите слежение и измените что-нибудь в машине.</string>
+    <string name="unknown_id">ID %1$d (нет в списке)</string>
+
+    <string name="action_set">Установить</string>
+    <string name="action_read_again">Прочитать снова</string>
+    <string name="action_close">Закрыть</string>
+    <string name="action_cancel">Отмена</string>
+    <string name="action_other_value">Другое значение…</string>
+    <string name="choose_zone">Выберите зону</string>
+    <string name="bad_number">Это не число.</string>
+    <string name="confirm_title">Изменить настройку машины?</string>
+    <string name="confirm_write">Установить %1$s = %2$s?</string>
+    <string name="write_accepted">Машина приняла значение.</string>
+    <string name="write_rejected">Машина отклонила значение.</string>
+    <string name="write_speed">Остановите машину, чтобы менять значения.</string>
+    <string name="write_error">Ошибка: %1$s</string>
+
+    <string name="report_saved">Отчёт сохранён:\n%1$s\n\nСкопируйте его на Mac:\nadb pull %1$s</string>
+    <string name="report_failed">Не удалось сохранить отчёт: %1$s</string>
+</resources>

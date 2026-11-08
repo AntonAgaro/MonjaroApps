@@ -14,8 +14,9 @@ Android apps for the owner's Geely Monjaro head unit. Each app is a standalone G
 The ECARX `com.ecarx.xui.adaptapi` classes are already on the head unit. Load them by reflection; never bundle them in the APK.
 
 - `Car.create()` runs `Authority.verifyAuthority()` and rejects apps without a system signature. Call the private `CarImpl(Context)` constructor by reflection instead. Confirmed in the car with our own package name (`app.monjaro.*`).
-- Start from `MonjaroDriveMode/app/src/main/java/app/monjaro/drivemode/EcarxCar.kt`: connect, `ICarFunction` get/set/supported values, `ISensor` events and values. Extend it rather than writing a new wrapper.
-- **Finding constants** (function IDs, values, sensor IDs): decompile the ECARX SDK bundled in the Climate Widget mod, then read the interfaces under `com/ecarx/xui/adaptapi/car/`:
+- Start from `CarExplorer/app/src/main/java/app/monjaro/carexplorer/EcarxCar.kt` (the fullest wrapper: connect, function status, zones, int/float get/set, supported values, sensors). Extend it rather than writing a new wrapper.
+- **Which functions this car supports**: ask the owner for a Car Explorer report (`/sdcard/Download/CarExplorer/`). It lists every supported function with its current and supported values, and its Changes section maps the car's own controls to function IDs. Prefer it over guessing from the SDK.
+- **Finding constants** (function IDs, values, sensor IDs) that are not in a report: decompile the ECARX SDK bundled in the Climate Widget mod, then read the interfaces under `com/ecarx/xui/adaptapi/car/`:
 
   ```sh
   jadx -d <scratch>/mcw --no-res <kit>/GeelyApps/mods/Monjaro_Climate_Widget/v1.1b/MCW_v1.1b.apk
@@ -47,6 +48,7 @@ export JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home
 ## Testing
 
 - The car API exists only on the head unit. The emulator (`monjaro_test`, Android 11) proves install, icon, UI, saved settings and service start; the car connection always fails there with `ClassNotFoundException`, which is expected.
+- To test car logic on the emulator, add a debug-only fake car in `src/debug/java` with the real ECARX class names, and give the debug build its own `applicationIdSuffix` (pattern: `CarExplorer/app/src/debug`).
 - Create emulators with `$ANDROID_HOME/cmdline-tools/latest/bin/avdmanager`; the Homebrew `avdmanager` cannot see the SDK's system images.
 - Car behaviour is proven only by the owner's test in the car. Give them a short checklist and the `adb logcat -s <tags>` command, and log every car read/write decision under a fixed tag.
 - For a car test, copy the APK into `GeelyApps/apk_force/` on the owner's flash drive; menu item 11 of `install_mac.py` installs only that folder.
