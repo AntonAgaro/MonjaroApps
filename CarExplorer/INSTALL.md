@@ -40,14 +40,40 @@ Stand still (writes are blocked above 3 km/h). Keep the cable connected if you w
    (drive mode, Auto Hold, seat heating, a setting in the car menu).
    Each change appears in the **Changes** tab with the function name.
 4. Tap **Save report** again, so the changes are in the file too.
-5. Copy the reports to the Mac:
-
-   ```sh
-   adb pull /sdcard/Download/CarExplorer/
-   ```
+5. Copy the reports to the Mac before you turn off the car (see the next section).
 
 Writing values: tap a function → **Set value**. Change only settings you can easily change back
 with the car's own controls.
+
+## Copy reports to the Mac (Terminal)
+
+The app saves reports on the head unit, in `/sdcard/Download/CarExplorer/`.
+Copy them over the USB cable with ADB.
+
+1. ADB must be open on the head unit, and the Mac must be connected to the **left** USB port.
+   ADB closes when the head unit restarts: if you turned the car off, open ADB again (QR code).
+2. Open Terminal on the Mac and check the connection:
+
+   ```sh
+   adb devices
+   ```
+
+   You must see one line with `device` at the end. An empty list means ADB is closed or the cable is not connected.
+3. Copy all reports to the Desktop:
+
+   ```sh
+   adb pull /sdcard/Download/CarExplorer/ ~/Desktop/
+   ```
+
+   The reports are now in the folder `CarExplorer` on your Desktop
+   (files `car_explorer_<date>_<time>.txt`).
+4. Optional: see the list of reports on the head unit without copying:
+
+   ```sh
+   adb shell ls /sdcard/Download/CarExplorer/
+   ```
+
+Old reports stay on the head unit. Every `adb pull` copies all of them again.
 
 ## Test on the Mac (emulator)
 
